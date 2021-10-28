@@ -11,6 +11,10 @@
         android:theme="@style/Theme.KoliKaja">
         <activity
             android:name=".MainActivity"
+
+            android:exported="true" />
+        <activity
+            android:name=".AuthActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

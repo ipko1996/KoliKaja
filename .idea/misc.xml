@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/activity_auth.xml" value="0.33" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/nav_header.xml" value="0.33" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
