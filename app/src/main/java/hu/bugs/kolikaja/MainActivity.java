@@ -1,7 +1,6 @@
 package hu.bugs.kolikaja;
 
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -42,6 +41,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
+                    case R.id.nav_all_food_btn:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container,new AllFood())
+                                .commit();
+                        break;
+                    case R.id.nav_add_food_btn:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container,new AddFood())
+                                .commit();
+                        break;
+                    case R.id.nav_remove_food_btn:
+                        getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container,new RemoveFood())
+                                .commit();
+                        break;
                     case R.id.nav_log_out_btn:
                         signOut();
                         break;
@@ -49,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "Not implemented yet",
                                 Toast.LENGTH_SHORT).show();
                 }
-
+                drawerLayout.closeDrawer(GravityCompat.START);
                 return true;
             }
         });
@@ -58,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        //Else it would show AllFood fragment after rotate
+        if(savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container, new AllFood())
+                    .commit();
+            navigationView.setCheckedItem(R.id.nav_all_food_btn);
+        }
     }
 
     private void initNavView(NavigationView navigationView) {
@@ -79,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(this, AuthActivity.class);
 
-        //make sure user cant go back
+        //make sure user can't go back
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
     }

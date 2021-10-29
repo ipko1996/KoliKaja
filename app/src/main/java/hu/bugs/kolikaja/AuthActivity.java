@@ -26,6 +26,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
+//TODO completely remove the account
+
 public class AuthActivity extends AppCompatActivity {
 
     private static final String TAG = "AuthActivity";
