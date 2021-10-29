@@ -28,7 +28,6 @@ import com.google.firebase.auth.GoogleAuthProvider;
 
 public class AuthActivity extends AppCompatActivity {
 
-    private static final int RC_SIGN_IN  = 42;
     private static final String TAG = "AuthActivity";
 
     private GoogleSignInClient mGoogleSignInClient;
@@ -41,7 +40,8 @@ public class AuthActivity extends AppCompatActivity {
                 public void onActivityResult(ActivityResult result) {
                     // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
                     if (result.getResultCode() == Activity.RESULT_OK) {
-                        Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(result.getData());
+                        Task<GoogleSignInAccount> task = GoogleSignIn
+                                .getSignedInAccountFromIntent(result.getData());
                         try {
                             // Google Sign In was successful, authenticate with Firebase
                             GoogleSignInAccount account = task.getResult(ApiException.class);
@@ -69,6 +69,9 @@ public class AuthActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        //"Full sign out"
+        mGoogleSignInClient.signOut();
 
         findViewById(R.id.sign_in_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +102,6 @@ public class AuthActivity extends AppCompatActivity {
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         mGetContent.launch(signInIntent);
-        //startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
     private void firebaseAuthWithGoogle(String idToken) {

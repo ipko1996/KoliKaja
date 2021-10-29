@@ -1,8 +1,13 @@
 package hu.bugs.kolikaja;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,12 +17,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import com.google.android.gms.auth.api.Auth;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,10 +32,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        drawerLayout = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+        setSupportActionBar(toolbar);
+        initNavView(navigationView);
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -53,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+    }
+
+    private void initNavView(NavigationView navigationView) {
+        FirebaseAuth data = FirebaseAuth.getInstance();
+        FirebaseUser user = data.getCurrentUser();
+        String userName = user.getDisplayName();
+        String email = user.getEmail();
+        Uri photo = user.getPhotoUrl();
+        View header = navigationView.getHeaderView(0);
+        TextView userNameText = header.findViewById(R.id.nav_username);
+        userNameText.setText(userName);
+        TextView emailText = header.findViewById(R.id.nav_email);
+        emailText.setText(email);
+        ImageView imageView = header.findViewById(R.id.nav_image);
+        Glide.with(this).load(photo).circleCrop().into(imageView);
     }
 
     private void signOut() {

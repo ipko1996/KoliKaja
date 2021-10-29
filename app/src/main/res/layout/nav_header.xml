@@ -11,17 +11,18 @@
     <ImageView
         android:layout_width="60dp"
         android:layout_height="68dp"
+        android:id="@+id/nav_image"
         android:src="@drawable/ic_baseline_account_circle_24" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="8dp"
-        android:text="username"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:id="@+id/nav_username"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Signed In" />
+        android:id="@+id/nav_email"/>
 </LinearLayout>
