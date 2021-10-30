@@ -1,13 +1,16 @@
 package hu.bugs.kolikaja;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -16,11 +19,11 @@ import java.util.ArrayList;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder> {
 
-    private ArrayList<Card> cards;
+    private ArrayList<Food> foods;
     private Context context;
 
-    public CardAdapter(ArrayList<Card> cards, Context context) {
-        this.cards = cards;
+    public CardAdapter(ArrayList<Food> foods, Context context) {
+        this.foods = foods;
         this.context = context;
     }
 
@@ -35,31 +38,52 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-        Card temp = cards.get(position);
+        Food temp = foods.get(position);
 
-        holder.foodName.setText(temp.getFoodName());
-        holder.foodPrice.setText(String.valueOf(temp.getFoodPrice()) + " Ft");
-        Glide.with(context).load(temp.getFoodImage()).into(holder.foodImage);
-        holder.foodLocation.setText(temp.getFoodLocation());
+        holder.tvFoodName.setText(temp.getName());
+        holder.tvFoodPrice.setText(String.valueOf(temp.getPrice()) + " Ft");
+        Glide.with(context).load(temp.getImageUrl()).into(holder.ivFoodImage);
+        holder.tvFoodLocation.setText(temp.getFoodLocation());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                FoodInfo foodInfo = new FoodInfo();
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("data", temp);
+                foodInfo.setArguments(bundle);
+                activity.getSupportFragmentManager()
+                        .beginTransaction()
+                        .setCustomAnimations(
+                                R.anim.slide_in,
+                                R.anim.slide_out
+                        )
+                        .replace(R.id.fragment_container, foodInfo)
+                        .addToBackStack(null).commit();
+
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return cards.size();
+        return foods.size();
     }
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {
-        private TextView foodName;
-        private TextView foodPrice;
-        private ImageView foodImage;
-        private TextView foodLocation;
+        private TextView tvFoodName;
+        private TextView tvFoodPrice;
+        private ImageView ivFoodImage;
+        private TextView tvFoodLocation;
 
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
-            foodName = itemView.findViewById(R.id.card_food_name);
-            foodPrice = itemView.findViewById(R.id.card_price);
-            foodImage = itemView.findViewById(R.id.card_image);
-            foodLocation = itemView.findViewById(R.id.card_foodLocation);
+            tvFoodName = itemView.findViewById(R.id.card_food_name);
+            tvFoodPrice = itemView.findViewById(R.id.card_price);
+            ivFoodImage = itemView.findViewById(R.id.card_image);
+            tvFoodLocation = itemView.findViewById(R.id.card_foodLocation);
         }
     }
 }

@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -24,47 +25,50 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 public class AllFood extends Fragment {
 
     private static final String TAG = "AllFood";
 
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference ref = db.collection("foods");
+    private final FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private final CollectionReference ref = db.collection("foods");
     private ListenerRegistration unsubscribe;
-    private ArrayList<Card> cards;
+    private ArrayList<Food> foods;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     public AllFood() {
+        Log.i(TAG, "constructor");
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        cards = new ArrayList<>();
+        Log.i(TAG, "onCreateView");
+
+        if (getArguments() != null) {
+            foods = getArguments().getParcelable("foods");
+        }else{
+            foods = new ArrayList<>();
+        }
+
 
         // Test data
-//        cards.add(new Card("Test Kaja1", 500, Uri.parse("https://image-api.nosalty.hu/nosalty/images/recipes/qN/ou/klasszikus-toltott-kaposzta.jpeg?w=640&h=360&fit=crop&s=d644d0f2313e6641857f0a1169106ba7"), "KK"));
-//        cards.add(new Card("Test Kaja2", 700, Uri.parse("https://image-api.nosalty.hu/nosalty/images/recipes/qN/ou/klasszikus-toltott-kaposzta.jpeg?w=640&h=360&fit=crop&s=d644d0f2313e6641857f0a1169106ba7"), "Magi"));
-//        cards.add(new Card("Test Kaja3", 450, Uri.parse("https://image-api.nosalty.hu/nosalty/images/recipes/qN/ou/klasszikus-toltott-kaposzta.jpeg?w=640&h=360&fit=crop&s=d644d0f2313e6641857f0a1169106ba7"), "Magi"));
+        //foods.add(new Food("Test Kaja3", 450, Uri.parse("https://image-api.nosalty.hu/nosalty/images/recipes/qN/ou/klasszikus-toltott-kaposzta.jpeg?w=640&h=360&fit=crop&s=d644d0f2313e6641857f0a1169106ba7"), "Magi"));
 
         unsubscribe = ref.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
             public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
                 List<DocumentSnapshot> docs = value.getDocuments();
-                cards.clear();
+                foods.clear();
                 for (DocumentSnapshot document : docs) {
                     Map<String, Object> temp = document.getData();
                     if (temp == null) throw new AssertionError();
-                    cards.add(new Card(temp));
-//                    Log.d(TAG, document.getId() + " => " + document.getData());
-//                    Log.d(TAG, temp.toString());
+                    foods.add(new Food(temp));
+                    Log.d(TAG, new Food(temp).toString());
                 }
                 adapter.notifyDataSetChanged();
-
             }
         });
 
@@ -85,25 +89,36 @@ public class AllFood extends Fragment {
     }
 
     @Override
-    public void onDestroy() {
-        unsubscribe.remove();
-        Log.d(TAG, "Unsubscribed from querySnapshot");
-        super.onDestroy();
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_all_food, container, false);
+        View root = inflater.inflate(R.layout.fragment_all_food,
+                container,
+                false);
         root.setTag("AllFood");
         recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(getActivity());
-        adapter = new CardAdapter(cards, getActivity());
+        adapter = new CardAdapter(foods, getActivity());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+        Log.i(TAG, "onCreateView");
 
         return root;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putParcelableArrayList("foods", foods);
+        Log.i(TAG, "onSaveInstanceState");
+    }
+
+    @Override
+    public void onDestroy() {
+        unsubscribe.remove();
+        Log.d(TAG, "Unsubscribed from querySnapshot");
+        Log.i(TAG, "onDestroy");
+        super.onDestroy();
     }
 }
