@@ -5,10 +5,149 @@
     android:layout_height="match_parent"
     tools:context=".FoodInfo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvFoodName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="Foodname"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="TextView" />
+
+            <ImageView
+                android:id="@+id/ivFood"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_fastfood_24" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:text="Price"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:id="@+id/tvPlaceText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Place"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="TextView"
+                        android:textSize="20sp" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:id="@+id/tvExpirationText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Expiration"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvExpiration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="TextView"
+                        android:textSize="14sp" />
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:id="@+id/tvDateText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Date"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="TextView"
+                        android:textSize="14sp" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="description"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnBuy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Buy"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+    </ScrollView>
 </FrameLayout>

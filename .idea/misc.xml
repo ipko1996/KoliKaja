@@ -8,7 +8,7 @@
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_add_food.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_all_food.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_card.xml" value="0.25" />
-        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_food_info.xml" value="0.20572916666666666" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_food_info.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_remove_food.xml" value="0.1" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/nav_header.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
@@ -20,5 +20,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

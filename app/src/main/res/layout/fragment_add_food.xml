@@ -5,9 +5,196 @@
     android:layout_height="match_parent"
     tools:context=".AddFood">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Add Food" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="center"
+                android:text="Add new food"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Food's name"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/etFoodName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Food's name"
+                        android:inputType="textPersonName" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Place"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/etPlace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="Place"
+                        android:inputType="textPersonName" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Expiration"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/btnDatePick"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_date_range_24"
+                        android:text="Pick a date" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="clip_vertical"
+                    android:layout_margin="4dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Price"
+                        android:textSize="20sp" />
+
+                    <EditText
+                        android:id="@+id/etPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:ems="10"
+                        android:hint="Price"
+                        android:inputType="number|textPersonName" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Ft"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </TableRow>
+
+            </TableLayout>
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:gravity="top|start"
+                android:hint="e.g No salt added"
+                android:inputType="textMultiLine"
+                android:lines="1"
+                android:maxLines="2"
+                android:minHeight="48dp"
+                android:minLines="1"
+                android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnCamera"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+                    android:text="Take a picture" />
+
+                <Button
+                    android:id="@+id/btnGallery"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_baseline_image_24"
+                    android:text="Select Picture" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivFoodPic"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_baseline_image_24" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="43dp" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:drawableLeft="@drawable/ic_baseline_publish_24"
+                android:text="Publish" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="88dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
 </FrameLayout>

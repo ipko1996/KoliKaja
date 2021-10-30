@@ -1,6 +1,5 @@
 package hu.bugs.kolikaja;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -25,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+
+//TODO:Rotate bugfix at adapter
 public class AllFood extends Fragment {
 
     private static final String TAG = "AllFood";
