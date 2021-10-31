@@ -6,6 +6,7 @@ import android.os.Parcelable;
 
 import com.google.firebase.Timestamp;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Food implements Parcelable {
@@ -30,6 +31,21 @@ public class Food implements Parcelable {
     private String foodLocation;
     private String fileName;
     private String userId;
+    private String message;
+
+    public Food(Food food) {
+        this.name = food.getName();
+        this.price = food.getPrice();
+        this.imageUrl = food.getImageUrl();
+        this.foodLocation = food.getFoodLocation();
+        this.userName = food.getName();
+        this.date = food.getDate();
+        this.description = food.getDescription();
+        this.expiration = food.getExpiration();
+        this.fileName = food.getFileName();
+        this.userId = food.getUserId();
+        this.message = food.getMessage();
+    }
 
     public Food(String name, int price, Uri imageUrl, String foodLocation) {
         this.name = name;
@@ -49,11 +65,12 @@ public class Food implements Parcelable {
         foodLocation = in.readString();
         fileName = in.readString();
         userId = in.readString();
+        message = in.readString();
     }
 
     public Food(Map<String, Object> map) {
         this.name = (String) map.get("name");
-        Long l = Long.valueOf((Long) map.get("price"));
+        Long l = (Long) map.get("price");
         this.price = l.intValue();
         this.imageUrl = Uri.parse((String) map.get("imageUrl"));
         this.foodLocation = (String) map.get("foodLocation");
@@ -63,6 +80,32 @@ public class Food implements Parcelable {
         this.expiration = (Timestamp) map.get("expiration");
         this.fileName = (String) map.get("fileName");
         this.userId = (String) map.get("userId");
+        this.message = (String) map.get("message");
+    }
+
+    public HashMap<String, Object> getHashMap(){
+        HashMap<String, Object> temp = new HashMap<>();
+        temp.put("name", name);
+        temp.put("price", price);
+        temp.put("imageUrl", imageUrl);
+        temp.put("foodLocation", foodLocation);
+        temp.put("userName", userName);
+        temp.put("date", date);
+        temp.put("description", description);
+        temp.put("expiration", expiration);
+        temp.put("fileName", fileName);
+        temp.put("userId", userId);
+        temp.put("message", message);
+
+        return temp;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getUserId() {
@@ -162,5 +205,6 @@ public class Food implements Parcelable {
         parcel.writeString(foodLocation);
         parcel.writeString(fileName);
         parcel.writeString(userId);
+        parcel.writeString(message);
     }
 }

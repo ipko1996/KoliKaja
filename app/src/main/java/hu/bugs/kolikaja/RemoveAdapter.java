@@ -50,6 +50,7 @@ public class RemoveAdapter extends RecyclerView.Adapter<RemoveAdapter.CardViewHo
         holder.tvFoodName.setText(temp.getName());
         holder.tvFoodPrice.setText(String.valueOf(temp.getPrice()) + " Ft");
         holder.tvFoodLocation.setText(temp.getFoodLocation());
+        holder.tvMessage.setText(temp.getMessage());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +113,7 @@ public class RemoveAdapter extends RecyclerView.Adapter<RemoveAdapter.CardViewHo
         private TextView tvFoodPrice;
         private ImageView ivFoodImage;
         private TextView tvFoodLocation;
+        private TextView tvMessage;
 
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -119,6 +121,7 @@ public class RemoveAdapter extends RecyclerView.Adapter<RemoveAdapter.CardViewHo
             tvFoodPrice = itemView.findViewById(R.id.card_price);
             ivFoodImage = itemView.findViewById(R.id.card_image);
             tvFoodLocation = itemView.findViewById(R.id.card_foodLocation);
+            tvMessage = itemView.findViewById(R.id.card_message);
         }
     }
 }

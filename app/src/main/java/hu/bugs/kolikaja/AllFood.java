@@ -1,5 +1,7 @@
 package hu.bugs.kolikaja;
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,10 +10,13 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -50,13 +55,9 @@ public class AllFood extends Fragment {
 
         if (getArguments() != null) {
             foods = getArguments().getParcelable("foods");
-        }else{
+        } else {
             foods = new ArrayList<>();
         }
-
-
-        // Test data
-        //foods.add(new Food("Test Kaja3", 450, Uri.parse("https://image-api.nosalty.hu/nosalty/images/recipes/qN/ou/klasszikus-toltott-kaposzta.jpeg?w=640&h=360&fit=crop&s=d644d0f2313e6641857f0a1169106ba7"), "Magi"));
 
         unsubscribe = ref.addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
@@ -65,8 +66,31 @@ public class AllFood extends Fragment {
                 foods.clear();
                 for (DocumentSnapshot document : docs) {
                     Map<String, Object> temp = document.getData();
-                    if (temp == null) throw new AssertionError();
-                    foods.add(new Food(temp));
+                    Log.d(TAG, temp.toString());
+                    Food food = new Food(temp);
+                    foods.add(food);
+
+                    String uId = FirebaseAuth.getInstance().getUid();
+                    if (!food.getMessage().isEmpty() && uId.equals(uId)) {
+                        Intent intent = new Intent(getContext(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        PendingIntent pendingIntent = PendingIntent.getActivity(getContext(), 0, intent, 0);
+
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(getContext(), "69")
+                                .setSmallIcon(R.drawable.ic_baseline_fastfood_24)
+                                .setContentTitle("New customer")
+                                .setContentText(food.getMessage())
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setOnlyAlertOnce(true)
+                                // Set the intent that will fire when the user taps the notification
+                                .setContentIntent(pendingIntent);
+
+                        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(getContext());
+
+                        // notificationId is a unique int for each notification that you must define
+                        notificationManager.notify((int) food.getDate().getSeconds(), builder.build());
+                    }
+
                     Log.d(TAG, new Food(temp).toString());
                 }
                 adapter.notifyDataSetChanged();

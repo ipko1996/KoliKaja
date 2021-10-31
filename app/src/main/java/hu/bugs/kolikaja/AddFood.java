@@ -235,6 +235,7 @@ public class AddFood extends Fragment {
         food.put("userId", uid);
         food.put("userName", userName);
         food.put("fileName", fileName);
+        food.put("message", "");
 
         db.collection("foods")
                 .add(food)
