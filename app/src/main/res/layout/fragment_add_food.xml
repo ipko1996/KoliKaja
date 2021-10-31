@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/fragment_add_food"
     tools:context=".AddFood">
 
     <ScrollView
@@ -71,7 +72,7 @@
                         android:layout_height="48dp"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="Place"
+                        android:hint="Place, room nr."
                         android:inputType="textPersonName" />
                 </TableRow>
 
@@ -174,21 +175,30 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/ic_baseline_image_24" />
+                android:scaleType="centerCrop"/>
+<!--                android:src="@drawable/ic_baseline_image_24" />-->
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="43dp" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnPublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
+                android:layout_marginBottom="20dp"
                 android:drawableLeft="@drawable/ic_baseline_publish_24"
                 android:text="Publish" />
+
+            <ProgressBar
+                android:id="@+id/pbUpload"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp" />
 
             <Space
                 android:layout_width="match_parent"

@@ -42,18 +42,23 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.nav_all_food_btn:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container,new AllFood())
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new AllFood())
                                 .commit();
                         break;
                     case R.id.nav_add_food_btn:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container,new AddFood())
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new AddFood())
+                                .addToBackStack(null)
                                 .commit();
                         break;
                     case R.id.nav_remove_food_btn:
-                        getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container,new RemoveFood())
+                        getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new RemoveFood())
+                                .addToBackStack(null)
                                 .commit();
                         break;
                     case R.id.nav_log_out_btn:
@@ -74,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         toggle.syncState();
 
         //Else it would show AllFood fragment after rotate
-        if(savedInstanceState == null) {
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment_container, new AllFood())
                     .commit();

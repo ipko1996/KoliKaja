@@ -38,7 +38,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         Food temp = foods.get(position);
-
         holder.tvFoodName.setText(temp.getName());
         holder.tvFoodPrice.setText(String.valueOf(temp.getPrice()) + " Ft");
         Glide.with(context).load(temp.getImageUrl()).into(holder.ivFoodImage);
@@ -59,7 +58,8 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
                                 R.anim.slide_out
                         )
                         .replace(R.id.fragment_container, foodInfo)
-                        .addToBackStack(null).commit();
+                        .addToBackStack(null)
+                        .commit();
 
 
             }

@@ -3,13 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/drawable/ic_baseline_fastfood_24.xml" value="0.3828125" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/activity_auth.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_add_food.xml" value="0.33" />
-        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_all_food.xml" value="0.33" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_all_food.xml" value="0.25" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_card.xml" value="0.25" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_food_info.xml" value="0.33" />
-        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_remove_food.xml" value="0.1" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_remove_card.xml" value="0.22" />
+        <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/fragment_remove_food.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/layout/nav_header.xml" value="0.33" />
         <entry key="..\:/Android/KoliKaja/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
       </map>

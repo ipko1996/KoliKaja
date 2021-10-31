@@ -20,7 +20,7 @@ public class Food implements Parcelable {
             return new Food[size];
         }
     };
-    private String userId;
+    private String userName;
     private Timestamp date;
     private String description;
     private Timestamp expiration;
@@ -28,6 +28,8 @@ public class Food implements Parcelable {
     private int price;
     private Uri imageUrl;
     private String foodLocation;
+    private String fileName;
+    private String userId;
 
     public Food(String name, int price, Uri imageUrl, String foodLocation) {
         this.name = name;
@@ -37,7 +39,7 @@ public class Food implements Parcelable {
     }
 
     protected Food(Parcel in) {
-        userId = in.readString();
+        userName = in.readString();
         date = in.readParcelable(Timestamp.class.getClassLoader());
         description = in.readString();
         expiration = in.readParcelable(Timestamp.class.getClassLoader());
@@ -45,6 +47,8 @@ public class Food implements Parcelable {
         price = in.readInt();
         imageUrl = in.readParcelable(Uri.class.getClassLoader());
         foodLocation = in.readString();
+        fileName = in.readString();
+        userId = in.readString();
     }
 
     public Food(Map<String, Object> map) {
@@ -53,14 +57,24 @@ public class Food implements Parcelable {
         this.price = l.intValue();
         this.imageUrl = Uri.parse((String) map.get("imageUrl"));
         this.foodLocation = (String) map.get("foodLocation");
-        this.userId = (String) map.get("userId");
+        this.userName = (String) map.get("userName");
         this.date = (Timestamp) map.get("date");
         this.description = (String) map.get("description");
         this.expiration = (Timestamp) map.get("expiration");
+        this.fileName = (String) map.get("fileName");
+        this.userId = (String) map.get("userId");
     }
 
     public String getUserId() {
         return userId;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public Timestamp getDate() {
@@ -86,15 +100,16 @@ public class Food implements Parcelable {
     @Override
     public String toString() {
         return "Food{" +
-                "price=" + price +
-                ", userId='" + userId + '\'' +
+                "userName='" + userName + '\'' +
                 ", date=" + date +
                 ", description='" + description + '\'' +
                 ", expiration=" + expiration +
                 ", name='" + name + '\'' +
-                ", foodPrice=" + price +
+                ", price=" + price +
                 ", imageUrl=" + imageUrl +
                 ", foodLocation='" + foodLocation + '\'' +
+                ", fileName='" + fileName + '\'' +
+                ", userId='" + userId + '\'' +
                 '}';
     }
 
@@ -137,7 +152,7 @@ public class Food implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(userId);
+        parcel.writeString(userName);
         parcel.writeParcelable(date, i);
         parcel.writeString(description);
         parcel.writeParcelable(expiration, i);
@@ -145,5 +160,7 @@ public class Food implements Parcelable {
         parcel.writeInt(price);
         parcel.writeParcelable(imageUrl, i);
         parcel.writeString(foodLocation);
+        parcel.writeString(fileName);
+        parcel.writeString(userId);
     }
 }
