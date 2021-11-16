@@ -154,14 +154,6 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnCamera"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
-                    android:text="@string/take_a_picture" />
-
-                <Button
                     android:id="@+id/btnGallery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -183,6 +175,14 @@
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="43dp" />
+
+            <Button
+                android:id="@+id/btnCamera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/ic_baseline_camera_alt_24"
+                android:text="@string/take_a_picture" />
 
             <Button
                 android:id="@+id/btnPublish"

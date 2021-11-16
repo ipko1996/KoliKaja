@@ -98,7 +98,7 @@ public class AddFood extends Fragment {
                             Log.i(TAG, e.toString());
                         }
                     } else {
-                        Toast.makeText(getContext(), R.string.yhpi, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), R.string.pickimage, Toast.LENGTH_LONG).show();
                     }
                 }
             });

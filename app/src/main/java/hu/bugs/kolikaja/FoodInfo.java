@@ -108,9 +108,9 @@ public class FoodInfo extends Fragment {
                 AlertDialog.Builder alert = new AlertDialog.Builder(getContext());
 
                 final EditText edittext = new EditText(getContext());
-                edittext.setHint("I'll be there in 5 minutes...");
-                alert.setMessage("Send message to seller");
-                alert.setTitle("Buy Item");
+                edittext.setHint(R.string.hint1);
+                alert.setMessage(R.string.hint2);
+                alert.setTitle(R.string.hint3);
 
                 alert.setView(edittext);
 

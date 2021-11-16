@@ -45,14 +45,16 @@
     <string name="pricetag">Ár</string>
     <string name="e_g_no_salt">pl. nincs megsózva</string>
 
-    <string name ="deletemsg">Biztos törlni kívánod ezt az elemet?</string>
+    <string name ="deletemsg">Biztos törölni kívánod ezt az elemet?</string>
     <string name="yes">Igen</string>
     <string name="no">Nem</string>
     <string name="sww">Valami hiba történt!</string>
     <string name="us">Sikeres feltöltés!</string>
-    <string name="odcbe">Csak a leírás maradhat üres</string>
-    <string name="yhpi">Nem választottál képet</string>
+    <string name="odcbe">A leírás nem maradhat üres!</string>
+    <string name="pickimage">Nem választottál képet!</string>
 
-
+    <string name="hint1">5 perc múlva ott leszek</string>
+    <string name="hint2">Küldj üzentet az eladónak</string>
+    <string name="hint3">Megveszem az ételt</string>
 
 </resources>

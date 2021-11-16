@@ -51,7 +51,11 @@
     <string name="sww">Something went wrong!</string>
     <string name="us">Uploaded successfully!</string>
     <string name="odcbe">Only description can be empty</string>
-    <string name="yhpi">You haven\'t picked Image</string>
+    <string name="pickimage">You haven\'t picked an image</string>
+
+    <string name="hint1">I\'ll be there in 5 minutes...</string>
+    <string name="hint2">Send message to seller</string>
+    <string name="hint3">Buy Item</string>
 
 
 </resources>
