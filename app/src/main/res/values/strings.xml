@@ -22,7 +22,6 @@
     <string name="message">Message</string>
     <string name="food_photo">Food photo</string>
     <string name="foodname">Foodname</string>
-
     <string name="string_price" />
     <string name="place">Place</string>
     <string name="expiration">Expiration</string>
@@ -40,7 +39,19 @@
     <string name="publish">Publish</string>
     <string name="Food_name_add">Food\'s name</string>
 
+    <string name="food_ss_name">Food\'s name</string>
+    <string name="place_room">Place/ room</string>
+    <string name="pick_a">Pick a date</string>
+    <string name="pricetag">Price</string>
+    <string name="e_g_no_salt">e.g not salted</string>
 
+    <string name ="deletemsg">Are you sure you want to delete this item?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="sww">Something went wrong!</string>
+    <string name="us">Uploaded successfully!</string>
+    <string name="odcbe">Only description can be empty</string>
+    <string name="yhpi">You haven\'t picked Image</string>
 
 
 </resources>

@@ -38,7 +38,7 @@
 
                     <TextView
                         android:id="@+id/Food_name_add"
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/Food_name_add"
@@ -50,7 +50,7 @@
                         android:layout_height="48dp"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="Food's name"
+                        android:hint="@string/food_ss_name"
                         android:inputType="textPersonName" />
                 </TableRow>
 
@@ -73,7 +73,8 @@
                         android:layout_height="48dp"
                         android:layout_weight="1"
                         android:ems="10"
-                        android:hint="@string/place_room_nr"
+                        android:hint="@string/place_room"
+                        android:textColorHint="#757575"
                         android:inputType="textPersonName" />
                 </TableRow>
 
@@ -96,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_date_range_24"
-                        android:text="@string/pick_a_date" />
+                        android:text="@string/pick_a" />
 
                 </TableRow>
 
@@ -117,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="48dp"
                         android:ems="10"
-                        android:hint="@string/price"
+                        android:hint="@string/pricetag"
                         android:inputType="number|textPersonName" />
 
                     <TextView
@@ -137,7 +138,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:gravity="top|start"
-                android:hint="@string/e_g_no_salt_added"
+                android:hint="@string/e_g_no_salt"
                 android:inputType="textMultiLine"
                 android:lines="1"
                 android:maxLines="2"

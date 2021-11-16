@@ -98,7 +98,7 @@ public class AddFood extends Fragment {
                             Log.i(TAG, e.toString());
                         }
                     } else {
-                        Toast.makeText(getContext(), "You haven't picked Image", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), R.string.yhpi, Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -163,7 +163,7 @@ public class AddFood extends Fragment {
                         etPrice.getText().toString().isEmpty() ||
                         ivFoodPic.getDrawable() == null
                 ) {
-                    Toast.makeText(getContext(), "Only description can be empty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.odcbe, Toast.LENGTH_SHORT).show();
                 } else {
                     upload();
                 }
@@ -243,7 +243,7 @@ public class AddFood extends Fragment {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
-                        Toast.makeText(getContext(), "Uploaded successfully!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.us, Toast.LENGTH_SHORT).show();
 
                         NavigationView navigationView = getActivity().findViewById(R.id.nav_view);
                         navigationView.setCheckedItem(R.id.nav_all_food_btn);
@@ -254,7 +254,7 @@ public class AddFood extends Fragment {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Log.w(TAG, "Error adding document", e);
-                        Toast.makeText(getActivity(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.sww, Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -281,7 +281,7 @@ public class AddFood extends Fragment {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         //Failure
-                        Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.sww, Toast.LENGTH_SHORT).show();
                         Log.d(TAG, e.toString());
                     }
                 })

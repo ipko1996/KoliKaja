@@ -39,5 +39,20 @@
     <string name="publish">Közzétesz</string>
     <string name="Food_name_add">Étel/ek neve</string>
 
+    <string name="food_ss_name">Étel neve</string>
+    <string name="place_room">Hely / szoba</string>
+    <string name="pick_a">Válassz egy dátumot</string>
+    <string name="pricetag">Ár</string>
+    <string name="e_g_no_salt">pl. nincs megsózva</string>
+
+    <string name ="deletemsg">Biztos törlni kívánod ezt az elemet?</string>
+    <string name="yes">Igen</string>
+    <string name="no">Nem</string>
+    <string name="sww">Valami hiba történt!</string>
+    <string name="us">Sikeres feltöltés!</string>
+    <string name="odcbe">Csak a leírás maradhat üres</string>
+    <string name="yhpi">Nem választottál képet</string>
+
+
 
 </resources>

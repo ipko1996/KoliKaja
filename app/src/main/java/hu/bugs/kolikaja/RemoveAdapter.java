@@ -57,8 +57,8 @@ public class RemoveAdapter extends RecyclerView.Adapter<RemoveAdapter.CardViewHo
             public void onClick(View view) {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setMessage("Are you sure you want to delete this item?")
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                builder.setMessage(R.string.deletemsg)
+                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 CollectionReference ref = FirebaseFirestore.getInstance().collection("foods");
@@ -96,7 +96,7 @@ public class RemoveAdapter extends RecyclerView.Adapter<RemoveAdapter.CardViewHo
                                         });
                             }
                         })
-                        .setNegativeButton("No", null)
+                        .setNegativeButton(R.string.no, null)
                         .show();
 
             }
